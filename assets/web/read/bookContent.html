@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <title>章节内容</title>
+    <link type="text/css" rel="stylesheet" href="css/bookContent.css">
+    <link type="text/css" rel="stylesheet" href="css/custom_theme.css">
+    <link type="text/css" rel="stylesheet" href="layui/css/layui.css">
+    <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../js/sweetalert2.min.js"></script>
+    <script type="text/javascript" src="layui/layui.all.js"></script>
+    <script type="text/javascript" src="../js/config.js"></script>
+</head>
+<body class="theme-0">
+
+<!--阅读正文-->
+<div id="container" class="layui-container">
+
+    <!-- 内容 -->
+    <div id="book-content" class="content content-wrap">
+        <div class="book-name" id="bookName"></div>
+        <h2 class="chapter-name" id="chapterName"></h2>
+        <div class="book-author" id="chapterInfo"></div>
+        <div class="reader-content" id="chapterContent"></div>
+    </div>
+
+    <!-- 上一章 下一章 -->
+    <div id="chapterNextPre" class="layui-row bottom-wrap catalog-control"></div>
+
+    <!-- 设置 -->
+    <div class="layui-fixset">
+        <ul id="ui_setting" style="display: none;">
+            <li class="layui-icon md-go-detail setting-wrap"><i class="layui-icon" style="font-size: 22px">&#xe60a;</i><br>详情</li>
+            <li class="layui-icon md-catalogs-open setting-wrap"><i class="layui-icon" style="font-size: 16px">&#xe647;</i><br>目录</li>
+            <li class="layui-icon md-setting-open setting-wrap"><i class="layui-icon" style="font-size: 20px">&#xe614;</i><br>设置</li>
+        </ul>
+
+        <div class="reader-catalogs-md panel-wrap" style="display: none">
+            <div class="layui-row">
+                <i class="layui-col-xs-offset10 layui-col-xs2 layui-col-md-offset11 layui-col-md1 layui-icon md-catalogs-close">&#x1006;</i>
+            </div>
+            <div class="layui-row">
+                <h3 class="layui-col-md12 reader-setting-top-title active">目录</h3>
+            </div>
+            <div class="layui-row">
+                <hr class="layui-col-md1 layui-col-xs2">
+            </div>
+
+            <div class="layui-row catalog-list">
+                <span class="active layui-col-md12 layui-col-xs12" id="catalogTips" style="text-align: center">正在加载中......</span>
+            </div>
+
+        </div>
+
+        <div class="reader-setting-md panel-wrap" style="display: none">
+            <div class="layui-row">
+                <i class="layui-col-xs-offset10 layui-col-xs2 layui-col-md-offset11 layui-col-md1 layui-icon md-setting-close">&#x1006;</i>
+            </div>
+            <div class="layui-row">
+                <h3 class="layui-col-md12 reader-setting-top-title">设置</h3>
+            </div>
+            <br>
+            <br>
+            <div class="layui-row">
+                <div class="layui-col-xs3 layui-col-md3 md-setting-title">阅读主题</div>
+                <div class="layui-col-xs9 layui-col-md9 layui-row">
+                    <div class="layui-col-xs2 layui-col-md2  reader-theme">
+                        <div class=" layui-circle theme-0 act" style="background-color: #fff">
+                            <i class="layui-icon">&#xe605;</i>
+                        </div>
+                    </div>
+
+                    <div class="layui-col-xs2 layui-col-md2  reader-theme">
+                        <div class=" layui-circle theme-1 default" style="background-color: #000">
+                            <i class="layui-icon">&#xe605;</i>
+                        </div>
+                    </div>
+
+                    <div class="layui-col-xs2 layui-col-md2  reader-theme">
+                        <div class=" layui-circle theme-2 default" style="background-color: #d0eae3">
+                            <i class="layui-icon">&#xe605;</i>
+                        </div>
+                    </div>
+
+                    <div class="layui-col-xs2 layui-col-md2  reader-theme">
+                        <div class=" layui-circle theme-3 default" style="background-color: #e1ddd8">
+                            <i class="layui-icon">&#xe605;</i>
+                        </div>
+                    </div>
+
+                    <div class="layui-col-xs2 layui-col-md2  reader-theme">
+                        <div class=" layui-circle theme-4 default" style="background-color: #fe4e30">
+                            <i class="layui-icon">&#xe605;</i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <br>
+
+            <div class="layui-row">
+                <div class="layui-col-xs3 layui-col-md3 md-setting-title">正文字体</div>
+                <div class="layui-col-xs9 layui-col-md9 layui-row">
+                    <div class="layui-col-xs10 layui-col-md10 layui-row md-setting-font-family">
+                        <div class="layui-col-xs4 layui-col-md4 md-setting-font-family-btn md-setting-font-family-yahei default">雅黑
+                        </div>
+                        <div class="layui-col-xs4 layui-col-md4 md-setting-font-family-btn md-setting-font-family-song default">宋体
+                        </div>
+                        <div class="layui-col-xs4 layui-col-md4 md-setting-font-family-btn md-setting-font-family-kai default">楷书
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="layui-row">
+                <div class="layui-col-xs3 layui-col-md3 md-setting-title">字体大小</div>
+                <div class="layui-col-xs9 layui-col-md9 layui-row">
+                    <div class="layui-col-xs10 layui-col-md10 layui-row md-setting-font-size">
+                        <div class="layui-col-xs4 layui-col-md4 md-setting-font-size-btn md-setting-font-size-smaller">A-</div>
+                        <span class="layui-col-xs4 layui-col-md4 md-setting-font-size-view">30</span>
+                        <div class="layui-col-xs4 layui-col-md4 md-setting-font-size-btn md-setting-font-size-bigger">A+</div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="layui-row">
+                <div class="layui-col-xs3 layui-col-md3 md-setting-title">行间距</div>
+                <div class="layui-col-xs9 layui-col-md9 layui-row">
+                    <div class="layui-col-xs10 layui-col-md10 layui-row md-line-height">
+                        <div class="layui-col-xs4 layui-col-md4 md-setting-line-height-btn md-setting-line-height-smaller">-</div>
+                        <span class="layui-col-xs4 layui-col-md4 md-setting-line-height-view">1.8</span>
+                        <div class="layui-col-xs4 layui-col-md4 md-setting-line-height-btn md-setting-line-height-bigger">+</div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="layui-row">
+                <div class="layui-col-xs3 layui-col-md3 md-setting-title">页面宽度</div>
+                <div class="layui-col-xs9 layui-col-md9 layui-row">
+                    <div class="layui-col-xs10 layui-col-md10 layui-row md-setting-font-size">
+                        <div class="layui-col-xs4 layui-col-md4 md-setting-page-size-btn md-setting-page-size-smaller"><i
+                                class="layui-icon">&#xe647;</i> -
+                        </div>
+                        <span class="layui-col-xs4 layui-col-md4 md-setting-page-size-view">100%</span>
+                        <div class="layui-col-xs4 layui-col-md4 md-setting-page-size-btn md-setting-page-size-bigger"><i
+                                class="layui-icon">&#xe647;</i> +
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  滚动到顶部 -->
+    <ul class="layui-fixbar setting-wrap layui-hide-xs" style="right: auto;">
+        <li class="layui-icon layui-fixbar-top" lay-type="top" style="display:none;"></li>
+    </ul>
+</div>
+<script type="text/javascript" src="js/bookContent.js"></script>
+</body>
+</html>

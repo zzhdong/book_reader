@@ -1,0 +1,281 @@
+
+.content {
+    margin: auto;
+}
+
+#container {
+    margin-top: 40px;
+}
+
+.book-name{
+    font-size: 16px;
+    color: #666;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.chapter-name {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-top: 30px;
+    font-weight: normal;
+}
+.book-author{
+    color: #999;
+    font-size: 13px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.reader-content {
+    font-size: 30px;
+    font-family: 'Microsoft YaHei', PingFangSC-Regular, HelveticaNeue-Light, 'Helvetica Neue Light', sans-serif;
+    line-height: 1.8;
+}
+.reader-content br {
+    display: block;
+    content: "";
+    margin: 10px 0;
+}
+
+.catalog-control {
+    margin: 15px auto;
+}
+
+.catalog-control a {
+    text-align: center;
+    line-height: 52px;
+}
+
+.catalog-control span {
+    text-align: center;
+    line-height: 52px;
+}
+
+.catalog-control a:hover {
+    color: red;
+    background: rgba(0, 0, 0, .03);
+}
+
+.layui-fixset {
+    position: fixed;
+}
+
+.layui-fixset ul {
+    float: left;
+}
+
+.layui-fixset li {
+    font-size: 12px;
+    line-height: 20px;
+    padding: 10px 0;
+    text-align: center;
+    display: list-item;
+    cursor: pointer;
+    width: 60px;
+    height: 40px;
+}
+
+.layui-fixset li:hover {
+    color: #ed4259;
+    transition: 500ms;
+}
+
+.reader-setting-top-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.reader-catalogs-md {
+    float: left;
+    min-height: 100px;
+    padding: 20px 20px 20px 20px;
+}
+
+.md-catalogs-close {
+    cursor: pointer;
+    text-align: center;
+    font-size: 20px;
+}
+
+.catalog-list {
+    max-height: 70vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.catalog-list a {
+    font-size: 16px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    white-space: nowrap;
+}
+
+.reader-catalogs-md .active {
+    color: #ed4259;
+}
+
+.catalog-list a:hover {
+    color: #ed4259;
+    transition: 500ms;
+}
+
+.reader-setting-md {
+    float: left;
+    min-height: 100px;
+    padding: 20px 20px 40px 20px;
+}
+
+.md-setting-close {
+    cursor: pointer;
+    text-align: center;
+    font-size: 20px;
+}
+
+.md-setting-title {
+    font-size: 14px;
+    text-align: center;
+    line-height: 35px;
+}
+
+.reader-theme {
+    text-align: center;
+}
+
+.reader-theme div {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.reader-theme .default {
+    border: 1px solid rgba(0, 0, 0, .1);
+}
+
+.reader-theme .act {
+    border: 1px solid #ed4259;
+}
+
+.reader-theme i {
+    line-height: 30px;
+    color: red;
+    font-weight: bolder;
+    margin-left: 2px;
+}
+
+.reader-theme .default i {
+    display: none;
+}
+
+.reader-theme .act i {
+    display: block;
+}
+
+.md-setting-font-family-btn {
+    height: 35px;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+    line-height: 35px;
+}
+
+.md-setting-font-family-btn:hover {
+    color: #ed4259;
+    transition: 500ms;
+}
+
+.md-setting-font-family .act {
+    border: 1px #ed4259 solid;
+    background-color: #fff0f2;;
+}
+
+.md-setting-font-family .default {
+    border: 1px solid #d8d8d8;
+}
+
+.md-setting-font-size-btn {
+    font-weight: bolder;
+    border: 1px solid #d8d8d8;
+    height: 35px;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+    line-height: 35px;
+}
+
+.md-setting-font-size-btn:hover {
+    color: #ed4259;
+    transition: 500ms;
+}
+
+.md-setting-font-size-view {
+    border: 1px solid #d8d8d8;
+    text-align: center;
+    line-height: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.md-setting-page-size-btn {
+    font-weight: bolder;
+    border: 1px solid #d8d8d8;
+    height: 35px;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+    line-height: 35px;
+}
+
+.md-setting-page-size-btn:hover {
+    color: #ed4259;
+    transition: 500ms;
+}
+
+.md-setting-line-height-btn {
+    font-weight: bolder;
+    border: 1px solid #d8d8d8;
+    height: 35px;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+    line-height: 35px;
+}
+
+.md-setting-line-height-btn:hover {
+    color: #ed4259;
+    transition: 500ms;
+}
+
+.md-setting-line-height-view {
+    border: 1px solid #d8d8d8;
+    text-align: center;
+    line-height: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.md-setting-page-size-btn {
+    font-weight: bolder;
+    border: 1px solid #d8d8d8;
+    height: 35px;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+    line-height: 35px;
+}
+
+.md-setting-page-size-btn:hover {
+    color: #ed4259;
+    transition: 500ms;
+}
+
+.md-setting-page-size-view {
+    border: 1px solid #d8d8d8;
+    text-align: center;
+    line-height: 35px;
+    height: 35px;
+    cursor: pointer;
+}

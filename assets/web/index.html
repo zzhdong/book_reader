@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link type="text/css" rel="stylesheet" href="css/base.css" />
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/sweetalert2.min.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+</head>
+<body>
+    <div class="com_header" id="com_header">
+        <a href="/">
+            <div class="logo">
+                <img src="images/logo.png" alt="logo">
+                <div class="title">APP后台管理</div>
+            </div>
+        </a>
+        <div class="right">
+            <a href="index.html">
+                <div class="item activeItem">文件上传<span class="activeLine"></span></div>
+            </a>
+            <a href="bookSource.html">
+                <div class="item">书源管理</div>
+            </a>
+            <a href="bookList.html">
+                <div class="item">我的书架</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="com_content home_body" id="home_body">
+        <div class="com_title">
+            <div class="h1">书籍管理</div>
+            <div class="right bookSourceManager">
+                <button id="uploadBook" class="btn btn-default">
+                    上传书籍
+                </button>
+            </div>
+        </div>
+
+        <div class="com_block mt20">
+            <div class="overflow_table mt15">
+                <table class="table"><tbody id="tableBookList" ></tbody></table>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

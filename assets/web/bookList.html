@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的书架</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link type="text/css" rel="stylesheet" href="css/base.css" />
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/sweetalert2.min.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+    <style>
+        li, ol, ul {
+            list-style: none outside none;
+        }
+        .book-img-text li:first-child {
+            padding-top: 0;
+            border-top: none;
+        }
+        .book-img-text li {
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            padding: 22px 0;
+            border-top: 1px solid #e6e6e6;
+        }
+        .book-img-text .book-img-box {
+            position: relative;
+            z-index: 3;
+            width: 110px;
+            height: 152px;
+            margin-right: 16px;
+        }
+        .book-img-text .book-img-box, .book-img-text .book-mid-info {
+            float: left;
+        }
+        .book-img-text .book-img-box a {
+            display: block;
+            overflow: hidden;
+            width: 110px;
+            height: 152px;
+            box-shadow: 0 1px 6px rgba(0,0,0,.35);
+        }
+        .loaded a {
+            transition: color .3s,background-color .3s,border .3s;
+        }
+        .book-img-text .book-mid-info {
+            width: 1000px;
+        }
+        .book-img-text .book-img-box, .book-img-text .book-mid-info {
+            float: left;
+        }
+        .book-img-text .book-mid-info h4 {
+            font: 700 18px/24px PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;
+            overflow: hidden;
+            height: 24px;
+            margin-bottom: 10px;
+        }
+        .book-img-text .book-mid-info p.author {
+            overflow: hidden;
+            height: 16px;
+            margin-bottom: 4px;
+            color: #aaa;
+        }
+        .book-img-text .book-mid-info p.intro {
+            font-size: 12px;
+            line-height: 24px;
+            overflow: hidden;
+            /*height: 48px;*/
+            /*margin-bottom: 8px;*/
+            color: #666;
+        }
+        .book-img-text .book-mid-info p {
+            font-size: 12px;
+        }
+        .book-img-text .book-mid-info p.update {
+            line-height: 22px;
+            color: #2972cc;
+        }
+        .book-img-text .book-mid-info p.last {
+            line-height: 22px;
+            color: red;
+            margin-bottom: 2px;
+            margin-top: 2px;
+        }
+        .book-img-text .book-mid-info p {
+            font-size: 12px;
+        }
+        .book-img-text .book-img-box a img {
+            width: 110px;
+            height: 152px;
+            -webkit-transition: -webkit-transform .4s ease-out;
+            -moz-transition: -moz-transform .4s ease-out;
+            -ms-transition: -ms-transform .4s ease-out;
+            transition: transform .4s ease-out;
+        }
+        a img {
+            border: none;
+        }
+    </style>
+</head>
+<body>
+<div class="com_header" id="com_header">
+    <a href="/">
+        <div class="logo">
+            <img src="images/logo.png" alt="logo">
+            <div class="title">APP后台管理</div>
+        </div>
+    </a>
+    <div class="right">
+        <a href="index.html">
+            <div class="item">文件上传</div>
+        </a>
+        <a href="bookSource.html">
+            <div class="item">书源管理</div>
+        </a>
+        <a href="bookList.html">
+            <div class="item activeItem">我的书架<span class="activeLine"></span></div>
+        </a>
+    </div>
+</div>
+
+<div class="com_content home_body" id="home_body">
+    <div class="com_title">
+        <div class="h1">书架列表</div>
+        <div class="right bookListManager">
+            <button id="loadBook" class="btn btn-default">
+                刷新列表
+            </button>
+        </div>
+    </div>
+
+    <div class="com_block mt20">
+        <div class="book-img-text ml20 mr20">
+            <ul id="liBookList"></ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/bookList.js"></script>
+</body>
+</html>

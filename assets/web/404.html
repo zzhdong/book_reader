@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>404</title>
+    <meta http-equiv="refresh" content="5;url=/"/>
+    <style>
+        body {
+            background-color: #f1f1f1;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .container {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .row {
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+
+        .col-lg-offset-1 {
+            margin-left: 8.333333333333332%;
+        }
+
+        .col-lg-10 {
+            width: 83.33333333333334%;
+        }
+
+        .alert-danger {
+            color: #a94442;
+            background-color: #f2dede;
+            border-color: #ebccd1;
+        }
+
+        .alert-dismissable {
+            padding-right: 35px;
+        }
+
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="text-center">
+    <h1 style="font-size: 170px;">404</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="alert alert-dismissable alert-danger text-center">
+                <h3 style="color: #707070;"> 404！当前页面不存在 </h3>
+                <h3 style="color: #707070;font-size: 13px"><span id="second">5</span>秒后返回首页</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    let wait = parseInt(document.getElementById("second").innerHTML);
+    timeOut();
+
+    function timeOut() {
+        if (wait !== 0) {
+            setTimeout(function () {
+                --wait;
+                document.getElementById("second").innerHTML = wait + "";
+                timeOut();
+            }, 1000);
+        }
+    }
+</script>
+</body>
+
+</html>

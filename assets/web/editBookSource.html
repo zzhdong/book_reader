@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑书源</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link type="text/css" rel="stylesheet" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" href="css/layx.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/switchery.min.css" />
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/layx.min.js"></script>
+    <script type="text/javascript" src="js/sweetalert2.min.js"></script>
+    <script type="text/javascript" src="js/switchery.min.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+</head>
+<body>
+    <div class="com_header" id="com_header">
+        <a href="/">
+            <div class="logo">
+                <img src="images/logo.png" alt="logo">
+                <div class="title">APP后台管理</div>
+            </div>
+        </a>
+        <div class="right">
+            <a href="index.html">
+                <div class="item">文件上传</div>
+            </a>
+            <a href="bookSource.html">
+                <div class="item activeItem">书源管理<span class="activeLine"></span></div>
+            </a>
+            <a href="bookList.html">
+                <div class="item">我的书架</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="com_content home_body" id="home_body">
+        <div class="com_title">
+            <div class="h1">编辑书源</div>
+            <div class="right bookSourceManager">
+                <button id="exportBookSource" class="btn btn-default">
+                    生成JSON书源
+                </button>
+                <button id="importBookSource" class="btn btn-default">
+                    导入JSON书源
+                </button>
+                <button id="clearBookSource" class="btn btn-default">
+                    清空表单
+                </button>
+                <button id="undoOpera" class="btn btn-default">
+                    撤销操作
+                </button>
+                <button id="todoOpera" class="btn btn-default">
+                    重做操作
+                </button>
+                <button id="debugBookSource" class="btn btn-default">
+                    调试书源
+                </button>
+                <button id="saveBookSource" class="btn btn-default">
+                    保存书源
+                </button>
+            </div>
+        </div>
+
+        <div class="setting-body mt20">
+            <div class="block rules">
+                <h1 class="h1">书源基本信息</h1>
+                <div class="block-center">
+                    <div class="item mt10">
+                        <span class="left">书源名称：</span>
+                        <input type="text" id="bookSourceName" placeholder="书源名称(bookSourceName) | 会显示在书源列表">
+                    </div>
+                    <div class="item">
+                        <span class="left">书源地址：</span>
+                        <input type="text" id="bookSourceUrl" placeholder="书源URL(bookSourceUrl) | 通常填写网站主页(标头不可省略),例: https://www.qidian.com">
+                    </div>
+                    <div class="item">
+                        <span class="left">书源分组：</span>
+                        <input type="text" id="bookSourceGroup" placeholder="书源分组(bookSourceGroup) | 描述书源的特征信息">
+                    </div>
+                    <div class="item">
+                        <span class="left">是否启用：</span>
+                        <input type="checkbox" class="js-switch" checked id="enable"/>
+                    </div>
+                    <div class="item">
+                        <span class="left">是否详情搜索：</span>
+                        <input type="checkbox" class="js-switch" id="searchForDetail"/>
+                    </div>
+                </div>
+                <h1 class="h1 mt20">书城规则</h1>
+                <div class="block-center">
+                    <div class="item mt10">
+                        <span class="left" style="vertical-align: top;">书城地址：</span>
+                        <textarea type="text" id="ruleFindUrl" placeholder="书城分类菜单规则(ruleFindUrl),将显示在书城菜单&#10;每行一条书城分类(网址域名可省略):&#10;名称1::网址(Url)1&#10;名称2::网址(Url)2&#10;..."></textarea>
+                    </div>
+                    <div class="item">
+                        <span class="left">结果列表：</span>
+                        <input type="text" id="ruleFindList" placeholder="书城页列表规则(ruleFindList) | 选择书籍节点 (规则结果为List&lt;Element&gt;)">
+                    </div>
+                    <div class="item">
+                        <span class="left">书籍名称：</span>
+                        <input type="text" id="ruleFindName" placeholder="书城页书名规则(ruleFindName) | 选择节点书名 (规则结果为String)">
+                    </div>
+                    <div class="item">
+                        <span class="left">书籍作者：</span>
+                        <input type="text" id="ruleFindAuthor" placeholder="书城页作者规则(ruleFindAuthor) | 选择节点作者 (规则结果为String)">
+                    </div>
+                    <div class="item">
+                        <span class="left">书籍分类：</span>
+                        <input type="text" id="ruleFindKind" placeholder="书城页分类规则(ruleFindKind) | 选择节点分类信息 (规则结果为List&lt;String&gt;)">
+                    </div>
+                    <div class="item">
+                        <span class="left">最新章节：</span>
+                        <input type="text" id="ruleFindLastChapter" placeholder="书城页最新章节规则(ruleFindLastChapter) | 选择节点最新章节 (规则结果为String)">
+                    </div>
+                    <div class="item">
+                        <span class="left">简介内容：</span>
+                        <input type="text" id="ruleFindIntroduce" placeholder="书城页简介规则(ruleFindIntroduce) | 选择节点书籍简介 (规则结果为String)">
+                    </div>
+                    <div class="item">
+                        <span class="left">封面链接：</span>
+                        <input type="text" id="ruleFindCoverUrl" placeholder="书城页封面规则(ruleFindCoverUrl) | 选择节点书籍封面 (规则结果为Url)">
+                    </div>
+                    <div class="item">
+                        <span class="left">详情链接：</span>
+                        <input type="text" id="ruleFindNoteUrl" placeholder="书城页详情规则(ruleFindNoteUrl) | 选择书籍详情页网址 (规则结果为Url)">
+                    </div>
+                </div>
+                <h1 class="h1 mt20">书城搜索规则</h1>
+                <div class="block-center">
+                    <div class="item mt10">
+                        <span class="left">搜索网址：</span>
+                        <input type="text" id="ruleSearchUrl" placeholder="搜索网址(ruleSearchUrl) | [域名可省略]/search.php@kw=searchKey|char=utf-8">
+                    </div>
+                    <div class="item">
+                        <span class="left">结果验证：</span>
+                        <input type="text" id="ruleBookUrlPattern" placeholder="搜索页URL验证(ruleBookUrlPattern) | 正则验证URL是否为详情页,成功则跳过搜索页解析">
+                    </div>
+                    <div class="item">
+                        <span class="left">结果列表：</span>
+                        <input type="text" id="ruleSearchList" placeholder="搜索页列表规则(ruleSearchList) | 选择书籍节点 (规则结果为List&lt;Element&gt;)">
+                    </div>
+                    <div class="item">
+                        <span class="left">书籍名称：</span>
+                        <input type="text" id="ruleSearchName" placeholder="搜索页书名规则(ruleSearchName) | 选择节点书名 (规则结果为String)">
+                    </div>
+                    <div class="item">
+                        <span class="left">书籍作者：</span>
+                        <input type="text" id="ruleSearchAuthor" placeholder="搜索页作者规则(ruleSearchAuthor) | 选择节点作者 (规则结果为String)">
+                    </div>
+                    <div class="item">
+                        <span class="left">书籍分类：</span>
+                        <input type="text" id="ruleSearchKind" placeholder="搜索页分类规则(ruleSearchKind) | 选择节点分类信息 (规则结果为List&lt;String&gt;)">
+                    </div>
+                    <div class="item">
+                        <span class="left">最新章节：</span>
+                        <input type="text" id="ruleSearchLastChapter" placeholder="搜索页最新章节规则(ruleSearchLastChapter) | 选择节点最新章节 (规则结果为String)">
+                    </div>
+                    <div class="item">
+                        <span class="left">简介内容：</span>
+                        <input type="text" id="ruleSearchIntroduce" placeholder="搜索页简介规则(ruleSearchIntroduce) | 选择节点书籍简介 (规则结果为String)">
+                    </div>
+                    <div class="item">
+                        <span class="left">封面链接：</span>
+                        <input type="text" id="ruleSearchCoverUrl" placeholder="搜索页封面规则(ruleSearchCoverUrl) | 选择节点书籍封面 (规则结果为Url)">
+                    </div>
+                    <div class="item">
+                        <span class="left">详情链接：</span>
+                        <input type="text" id="ruleSearchNoteUrl" placeholder="搜索页详情规则(ruleSearchNoteUrl) | 选择书籍详情页网址 (规则结果为Url)">
+                    </div>
+                </div>
+                <h1 class="h1 mt20">书籍详情规则</h1>
+                <div class="block-center">
+                    <div class="item mt10">
+                        <span class="left">页面处理：</span>
+                        <input type="text" id="ruleBookInfoInit" placeholder="详情页信息预处理(ruleBookInfoInit) | 用于加速详情信息检索">
+                    </div>
+                    <div class="item">
+                        <span class="left">书籍名称：</span>
+                        <input type="text" id="ruleBookName" placeholder="书名规则(ruleBookName) | 选择详情页书名 (规则结果为String)">
+                    </div>
+                    <div class="item">
+                        <span class="left">书籍作者：</span>
+                        <input type="text" id="ruleBookAuthor" placeholder="作者规则(ruleBookAuthor) | 选择详情页作者 (规则结果为String)">
+                    </div>
+                    <div class="item">
+                        <span class="left">书籍分类：</span>
+                        <input type="text" id="ruleBookKind" placeholder="分类规则(ruleBookKind) | 选择详情页分类信息 (规则结果为List&lt;String&gt;)">
+                    </div>
+                    <div class="item">
+                        <span class="left">最新章节：</span>
+                        <input type="text" id="ruleBookLastChapter" placeholder="最新章节规则(ruleBookLastChapter) | 选择详情页最新章节 (规则结果为String)">
+                    </div>
+                    <div class="item">
+                        <span class="left">简介内容：</span>
+                        <input type="text" id="ruleIntroduce" placeholder="简介规则(ruleIntroduce) | 选择详情页书籍简介 (规则结果为String)">
+                    </div>
+                    <div class="item">
+                        <span class="left">封面链接：</span>
+                        <input type="text" id="ruleCoverUrl" placeholder="封面规则(ruleCoverUrl) | 选择详情页书籍封面 (规则结果为Url)">
+                    </div>
+                    <div class="item">
+                        <span class="left">目录链接：</span>
+                        <input type="text" id="ruleChapterUrl" placeholder="目录URL规则(ruleChapterUrl) | 选择目录页网址 (规则结果为Url, 与详情页相同时可省略)">
+                    </div>
+                </div>
+                <h1 class="h1 mt20">目录列表规则</h1>
+                <div class="block-center">
+                    <div class="item mt10">
+                        <span class="left">目录翻页：</span>
+                        <input type="text" id="ruleChapterUrlNext" placeholder="目录下一页规则(ruleChapterUrlNext) | 选择目录下一页链接 (规则结果为List&lt;Url&gt;)">
+                    </div>
+                    <div class="item">
+                        <span class="left">目录列表：</span>
+                        <input type="text" id="ruleChapterList" placeholder="目录列表规则(ruleChapterList) | 选择目录列表的章节节点 (规则结果为List&lt;Element&gt;)">
+                    </div>
+                    <div class="item">
+                        <span class="left">章节名称：</span>
+                        <input type="text" id="ruleChapterName" placeholder="章节名称规则(ruleChapterName) | 选择章节名称 (规则结果为String)">
+                    </div>
+                    <div class="item">
+                        <span class="left">章节链接：</span>
+                        <input type="text" id="ruleContentUrl" placeholder="章节URL规则(ruleContentUrl) | 选择章节链接 (规则结果为Url)">
+                    </div>
+                </div>
+                <h1 class="h1 mt20">书籍内容规则</h1>
+                <div class="block-center">
+                    <div class="item mt10">
+                        <span class="left">章节正文：</span>
+                        <input type="text" id="ruleBookContent" placeholder="正文规则(ruleBookContent) | 选择正文内容 (规则结果为String)">
+                    </div>
+                    <div class="item">
+                        <span class="left">正文翻页：</span>
+                        <input type="text" id="ruleContentUrlNext" placeholder="正文翻页URL规则(ruleContentUrlNext) | 选择下一分页(不是下一章)链接 (规则结果为Url)">
+                    </div>
+                </div>
+                <h1 class="h1 mt20">其他信息</h1>
+                <div class="block-center">
+                    <div class="item mt10">
+                        <span class="left">排序编号：</span>
+                        <input type="text" id="serialNumber" placeholder="整数: 0~N (可选,默认0) | 数字越小越靠前">
+                    </div>
+                    <div class="item">
+                        <span class="left">搜索权重：</span>
+                        <input type="text" rows="1" id="weight" placeholder="整数: 0~N (可选,默认0) | 数字越大越靠前">
+                    </div>
+                    <div class="item">
+                        <span class="left">书籍类型：</span>
+                        <input type="text" id="bookSourceType" placeholder="书源类型(bookSourceType) | 有声读物(填写AUDIO)或文本读物(留空)">
+                    </div>
+                    <div class="item">
+                        <span class="left">登录地址：</span>
+                        <input type="text" id="loginUrl" placeholder="登录URL(loginUrl) | 填写网站登录网址,仅在需要登录的书源有用">
+                    </div>
+                    <div class="item">
+                        <span class="left">浏览器标识：</span>
+                        <input type="text" id="httpUserAgent" placeholder="浏览器UA(HttpUserAgent) | 浏览器标识:User-Agent (可选)">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout-bookSource" style="display:none;padding: 10px;line-height: 1.5;">
+        <textarea id="textareaExportBookSource" style="font-size: 12px; width: 100%;height: 530px;"></textarea>
+    </div>
+
+    <div id="layout-bookSource-import" style="display:none;padding: 10px;line-height: 1.5;">
+        <button id="btnExportBookSourceImport" class="btn-min btn-default" style="float: right;margin-bottom: 10px;">导入</button>
+        <textarea id="textareaExportBookSourceImport" style="font-size: 12px; width: 100%;height: 490px;"></textarea>
+    </div>
+
+    <div id="layout-debugger" style="display:none;padding: 10px;line-height: 1.5;">
+        <div class="item" style="margin-bottom: 10px">
+            <span class="left">搜索内容：</span>
+            <input type="text" id="debugKey" placeholder="请输入搜索关键字" value="至尊" style="height: 30px">
+            <button id="btnDebugger" class="btn-min btn-default" style="padding: 5px 10px;">启动调试</button>
+        </div>
+        <textarea id="textareaDebugger" style="font-size: 12px; width: 100%;height: 490px;"></textarea>
+    </div>
+
+    <script type="text/javascript" src="js/editBookSource.js"></script>
+</body>
+</html>

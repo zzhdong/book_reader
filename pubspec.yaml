@@ -1,0 +1,136 @@
+name: book_reader
+description: Read Book By Filter
+publish_to: 'none' 
+version: 1.8.0
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  # 网络
+  dio: ^5.1.2
+  # SQLLite数据库
+  sqflite: ^2.2.8+3
+  # 持久化数据存储
+  shared_preferences: ^2.1.1
+  # 事件通知
+  event_bus: ^2.0.0
+  # 网络连接状态
+  connectivity_plus: ^3.0.6
+  # 电池
+  battery_plus: ^4.0.0
+  # 查询包信息版本
+  package_info_plus: ^4.0.1
+  # 获取设备信息
+  device_info_plus: ^9.0.1
+  # webview插件
+  webview_flutter: ^4.2.0
+  # 下拉刷新
+  pull_to_refresh: ^2.0.0
+  # 滑动删除
+  flutter_slidable: ^0.6.0
+  # 底部弹出
+  modal_bottom_sheet: ^3.0.0-pre
+  # 格式化字符串
+  sprintf: ^7.0.0
+  # 二维码, 需要配合 image_picker
+  flutter_qr_reader: ^1.0.5
+  image_picker: ^0.8.7+5
+  # flutter_svg
+  flutter_svg: ^1.0.1
+  # 生成二维码
+  qr_flutter: ^4.1.0
+  # 文件选择
+  file_picker: ^5.3.0
+  # 文件分享
+  share_extend: ^2.0.0
+  # 图片缓存
+  cached_network_image: ^3.2.3
+  # html处理
+  html: ^0.15.3
+  # 显示html
+  flutter_html: ^3.0.0-beta.1
+  # html转义
+  html_unescape: ^2.0.0
+  # 权限管理
+  permission_handler: ^10.2.0
+  # utf8转gbk
+  fast_gbk: ^1.0.0
+  # 打开URL
+  url_launcher: ^6.1.11
+  # 文本转语音
+  flutter_tts: ^3.6.3
+  # 隐藏iOS底部白条
+  home_indicator: ^2.0.2
+  # 汉字转拼音，繁转简
+  lpinyin: ^2.0.3
+  # redux
+  flutter_redux: ^0.10.0
+  # path
+  path: ^1.8.3
+  path_provider: ^2.0.15
+  # UUID
+  uuid: ^3.0.7
+  # json注解，配合build_runner和json_serializable生成json文件
+  json_annotation: ^4.8.1
+  intl: ^0.18.0
+  flutter_localization: ^0.1.11
+  # 广告模块
+  admob_flutter: ^3.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  build_runner: ^2.4.4
+  json_serializable: ^6.6.2
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/sounds/
+    - assets/json/
+    - assets/web/
+    - assets/web/css/
+    - assets/web/images/
+    - assets/web/js/
+    - assets/web/read/
+    - assets/web/read/css/
+    - assets/web/read/images/
+    - assets/web/read/js/
+    - assets/web/read/layui/
+    - assets/web/read/layui/css/
+    - assets/web/read/layui/css/modules/
+    - assets/web/read/layui/css/modules/laydate/default/
+    - assets/web/read/layui/css/modules/layer/default/
+    - assets/web/read/layui/font/
+    - assets/web/read/layui/images/face/
+    - assets/web/read/layui/lay/modules/
+  fonts:
+    - family: iconfont
+      fonts:
+        - asset: assets/icons/iconfont.ttf
+    # 苹方中黑体
+    - family: PingFangMedium
+      fonts:
+        - asset: assets/fonts/PingFang-Regular.ttf
+    # 思源黑体
+    - family: SourceHanSans
+      fonts:
+        - asset: assets/fonts/SourceHanSansCN-Normal.otf
+    # 思源宋体
+    - family: SourceHanSerif
+      fonts:
+        - asset: assets/fonts/SourceHanSerifCN-Medium.otf
+    # 思源柔黑
+    - family: GenJyuuGothic
+      fonts:
+        - asset: assets/fonts/GenJyuuGothic-Normal.ttf
+    # 阿里巴巴普惠体
+    - family: ALIBABA-PUHUITI
+      fonts:
+        - asset: assets/fonts/ALIBABA-PUHUITI-REGULAR.otf
