@@ -3,7 +3,7 @@
 <span>BookReader</span>
 </h1>
 <p align="center">
-    <em>基于Flutter开发的小说阅读器，支持Android开源阅读2.0版本的书源。</em>
+    <em>基于Flutter开发的小说阅读器，支持Android开源阅读2.0版本的书源，不支持3.0书源。</em>
 </p>
 
 ## BookReader界面
