@@ -38,15 +38,6 @@
 <a href="https://apps.apple.com/app/id6449187014"><img src="https://user-images.githubusercontent.com/7448857/209269801-48ab9e9e-2318-40ed-8d8a-d34a49514ed5.png" align="center" height="70"></a>
 </p>
 
-## 请熬夜的开发者喝瓶可乐？
-
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/benn)
-
-| Wechat Pay                                      | Ali Pay                                      |
-|-------------------------------------------------|----------------------------------------------|
-| <img src="./doc/wechat_pay.jpg" height="240" /> | <img src="./doc/ali_pay.jpg" height="240" /> |
-
-
 ## License
 
 [GNU General Public License v3.0](./LICENSE)
